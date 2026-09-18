@@ -32,23 +32,24 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Contact />
         <TimelineSection
           id="research"
           eyebrow="01 / Selected Research"
           heading={
             <>
-              From visual observations
+              Research on representations
               <br />
-              to structured representations.
+              for 3D perception.
             </>
           }
+          lead="Two research threads connect my recent work: learning representations for camera geometry, and using reconstructed human geometry in interactive 3D systems."
           items={researchItems}
         />
-        <ResearchDirection />
         <Publications />
+        <ResearchDirection />
         <SideProjects />
         <About />
-        <Contact />
       </main>
       <Footer />
     </>

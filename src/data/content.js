@@ -158,16 +158,10 @@ export const sideProjects = [
 
 export const educationTimeline = [
   {
-    date: 'SEP 2023 — FEB 2026',
-    title: 'Korea University',
-    org: 'M.S. in Computer Science and Engineering',
-    extra: 'GPA 4.3 / 4.5 · Thesis: CameraVQ',
-  },
-  {
     date: 'JUN 2023 — FEB 2026',
-    title: 'Media Lab, Korea University',
-    org: 'Research Student',
-    extra: '3D vision · human reconstruction · camera geometry',
+    title: 'Korea University',
+    org: 'M.S. in Computer Science and Engineering · Research Student, Media Lab',
+    extra: 'GPA 4.3 / 4.5 · Thesis: CameraVQ · 3D vision · human reconstruction · camera geometry',
   },
   {
     date: 'MAR 2015 — AUG 2021',

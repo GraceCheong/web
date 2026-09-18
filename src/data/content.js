@@ -1,116 +1,94 @@
-// ---------------------------------------------------------------------------
-// All editable site content lives in this one file.
-//
-// To add a video to a research or project item, set `video` to a YouTube or
-// Vimeo URL (any normal share/watch URL works, e.g.
-// "https://www.youtube.com/watch?v=XXXXXXXXXXX" or
-// "https://vimeo.com/XXXXXXXX"). Leave it unset / empty and no video block
-// is rendered.
-//
-// Lines marked DRAFT below are Claude's best guess at wording from what
-// Grace described — read and adjust before publishing, they are not
-// placeholders in the "fill this in" sense, just unverified copy.
-// ---------------------------------------------------------------------------
-
 export const profile = {
   name: 'DaEun Cheong',
-  wordmarkTag: 'RESEARCH PORTFOLIO',
-  eyebrow: '3D Vision · Representation Learning · Human Reconstruction · Real-time 3D',
-  headingLead: 'Learning to perceive',
-  headingRest: 'the ',
-  headingEmphasis: '3D world.',
+  wordmarkTag: '3D VISION · RESEARCH',
+  eyebrow: '3D Vision · Geometric Representation Learning · 3D Reconstruction',
+  headingLead: 'Learning representations',
+  headingRest: 'for ',
+  headingEmphasis: '3D perception.',
   intro: [
-    "I'm DaEun Cheong. I study how learned representations can improve the inference of 3D structure from visual observations.",
+    'I am a 3D vision researcher focused on how learned representations can help models infer geometry and structure from images.',
+    'My work spans monocular camera calibration, human reconstruction, and real-time 3D systems.',
+  ],
+  focus: [
+    { label: 'Research', value: '3D vision · representation learning' },
+    { label: 'Recent work', value: 'CameraVQ · monocular calibration' },
+    { label: 'Systems', value: 'Human reconstruction · XR · real-time 3D' },
   ],
   note: ['M.S. Computer Science & Engineering', 'Korea University · 2026'],
   email: 'wjdekdms001@gmail.com',
   scholarUrl: 'https://scholar.google.com/citations?user=zyTJIzsAAAAJ&hl=en',
   githubUrl: 'https://github.com/GraceCheong',
-  // TODO(Grace): paste your LinkedIn profile URL here — until then this
-  // button points nowhere (href="#") and is easy to spot in review.
-  linkedinUrl: '',
+  linkedinUrl: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-32636325a/',
 }
 
-// ---------------------------------------------------------------------------
-// Selected Research — the primary section. Plotted on a timeline, newest
-// first. Each item expands inline (accordion) for the full research
-// write-up. Deliberately a different shape from Side Projects below:
-// Research Question / Method / Contribution / Architecture / Context /
-// Publication — never Problem/Stack/Demo/GitHub.
-// ---------------------------------------------------------------------------
 export const researchItems = [
   {
     id: 'cameravq',
-    period: '2024 — 2026',
-    status: 'In progress · M.S. thesis',
+    period: '2025 — 2026',
+    status: 'Accepted · First author · M.S. thesis',
     category: 'Camera Geometry',
-    tags: ['Monocular calibration', 'Vector quantization'],
+    tags: ['Monocular calibration', 'Vector quantization', 'DINOv3'],
     title: 'CameraVQ',
     subtitle: 'Vector-Quantized Representations for Monocular Camera Calibration',
     summary:
-      'A discrete, learned representation of camera intrinsics for calibration from a single image — the basis of my master’s thesis.',
-    context: 'First-author research · M.S. thesis · Advisor: Jung Hyun Han',
+      'A representation-learning approach to monocular camera calibration that models camera intrinsics with a learned discrete codebook and predicts them from a single image.',
+    context: 'First-author research · M.S. thesis · Korea University Media Lab',
     question:
-      'How can vector-quantized representations support the estimation of camera intrinsics from visual observations?',
+      'Can a discrete representation of camera intrinsics provide a useful target space for monocular calibration from visual observations?',
     method:
-      'Investigating vector-quantized representations for monocular calibration, connecting representation design with camera geometry.',
+      'A VQ-based model learns codes for normalized camera intrinsics, while frozen visual features are used to predict the corresponding camera representation from one image.',
     contribution:
-      // DRAFT — confirm this reads accurately against the thesis framing.
-      'A discrete camera-code representation that makes monocular calibration more interpretable and learnable, tying representation design directly to camera geometry rather than regressing intrinsics directly.',
+      'Introduces a discrete representation for camera intrinsics and connects representation learning directly with monocular camera geometry, enabling calibration to be framed as prediction in a learned code space.',
     diagram: [
       { label: 'OBSERVATION', value: 'Single image' },
+      { label: 'VISUAL FEATURE', value: 'Frozen image encoder' },
       { label: 'REPRESENTATION', value: 'Camera code', accent: true },
       { label: 'GEOMETRY', value: 'Camera intrinsics' },
     ],
-    diagramCaption: 'Conceptual overview · intrinsics are represented through a learned codebook.',
-    video: '', // TODO(Grace): add a YouTube/Vimeo link when the demo video is ready
+    diagramCaption: 'Conceptual overview · image evidence is mapped to a learned camera representation.',
+    video: '',
     links: [{ label: 'Publication', href: '#publication-cameravq' }],
   },
   {
     id: 'xr-interaction',
     period: '2023 — 2025',
-    status: 'Collaborative research',
+    status: 'Published · Collaborative research',
     category: 'Humans & Interaction',
-    tags: ['Human pose & shape', 'Mixed reality'],
+    tags: ['Human mesh recovery', 'Mixed reality', 'Real-time interaction'],
     title: 'Human reconstruction for XR interaction',
     subtitle: 'Monocular human estimation in interactive environments',
     summary:
-      'Using human pose and shape estimation to support interaction with virtual objects, including work toward real-time interactive systems.',
-    context: 'Collaborative research · Media Lab, Korea University',
-    question: 'How can estimated human geometry be used to support interaction with virtual objects?',
+      'A real-time pipeline that uses monocular human pose and shape estimation as full-body geometry for interaction with virtual objects in mixed reality.',
+    context: 'Collaborative research · Korea University Media Lab',
+    question: 'How can estimated 3D human geometry support natural full-body interaction with virtual objects?',
     method:
-      'Connecting 3D human estimation with XR applications and the practical requirements of interactive environments, at Korea University’s Media Lab.',
+      'Integrated monocular human pose and shape estimation with an XR interaction pipeline and compared alternative body representations in an interactive user study.',
     contribution:
-      // DRAFT — confirm this reads accurately against the published work.
-      'Contributed to a pipeline that turns monocular human pose and shape estimates into full-body interaction with virtual objects, published as a journal article and demonstrated as an IEEE VR poster.',
+      'Connected monocular human reconstruction to a practical mixed-reality interaction system and evaluated how different body representations affect the interaction experience.',
     interactionMap: [
-      { step: '01', title: 'Observe', detail: 'Visual input of a person' },
-      { step: '02', title: 'Estimate', detail: '3D human pose and shape' },
-      { step: '03', title: 'Interact', detail: 'Human–object interaction in XR' },
+      { step: '01', title: 'Observe', detail: 'Monocular visual input' },
+      { step: '02', title: 'Reconstruct', detail: '3D human pose and shape' },
+      { step: '03', title: 'Interact', detail: 'Full-body interaction in XR' },
     ],
-    video: '', // TODO(Grace): add a YouTube/Vimeo link when the demo video is ready
+    video: '',
     links: [{ label: 'Related publications', href: '#publication-xr' }],
   },
 ]
 
-// ---------------------------------------------------------------------------
-// Research Direction — the throughline connecting the two research items
-// above to Interactive 3D Systems (and from there to the side projects).
-// ---------------------------------------------------------------------------
 export const researchDirection = {
-  lead: 'My broader interest is in developing effective representations for 3D perception — and connecting that perception to real, interactive systems.',
+  lead: 'I am interested in 3D perception models that learn geometry-aware representations and use them to reconstruct and reason about 3D structure from visual observations. I also care about bringing those models into practical, real-time systems.',
   pillars: [
     {
-      title: '3D Perception',
-      description: 'Recovering geometry and structure from visual observations.',
+      title: 'Geometry-aware representations',
+      description: 'Learning features and latent spaces that preserve cues useful for camera geometry, depth, shape, and spatial structure.',
     },
     {
-      title: 'Representation Learning',
-      description: 'Learning representations that encode useful geometric information.',
+      title: '3D reconstruction & perception',
+      description: 'Inferring cameras, humans, and other 3D structure from limited or monocular visual observations.',
     },
     {
-      title: 'Interactive 3D Systems',
-      description: 'Connecting 3D perception with human-centered and real-time applications.',
+      title: 'Real-time 3D systems',
+      description: 'Turning 3D perception methods into usable interactive pipelines under practical runtime constraints.',
     },
   ],
 }
@@ -122,7 +100,7 @@ export const publications = [
     type: 'JOURNAL · FIRST AUTHOR',
     title: 'CameraVQ: Vector-Quantized Representations for Monocular Camera Calibration',
     authors: [{ name: 'DaEun Cheong', me: true }, { name: 'Jung Hyun Han' }],
-    venue: 'Computer Animation and Virtual Worlds',
+    venue: 'Computer Animation and Virtual Worlds · accepted',
   },
   {
     id: 'publication-xr',
@@ -156,43 +134,38 @@ export const publications = [
   },
 ]
 
-// ---------------------------------------------------------------------------
-// Side Projects — supporting evidence, not equal billing with Research.
-// Two tiers, deliberately different shapes from the research cards above:
-//   featured (Level B) — Problem / What I Built / Stack / Demo / GitHub
-//   other    (Level C) — one line each, no big card
-// ---------------------------------------------------------------------------
 export const sideProjects = {
   featured: [
     {
       id: 'digital-wardrobe',
       title: 'Digital Wardrobe',
+      status: 'In development',
       subtitle: 'Real-time Virtual Garment Try-On in Unreal Engine',
-      stack: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Garment Simulation', 'Real-time Graphics'],
-      // DRAFT — your message cut off right after "프로젝트 구조:", so the
-      // Problem / What I Built copy below is my best guess from the title,
-      // subtitle and stack alone. Please rewrite these two fields with the
-      // actual project details.
+      stack: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
       problem:
-        'DRAFT — replace with the actual problem statement (e.g. why real-time, physically simulated garment try-on is hard, and for whom).',
+        'Virtual try-on is often presented as an isolated garment demo. This project explores a reusable personal wardrobe workflow where owned garments can be organized and previewed on a 3D avatar.',
       whatBuilt:
-        'DRAFT — replace with what you actually built: the avatar + garment simulation pipeline, what runs in real time, and what a user sees.',
-      video: '', // TODO(Grace): add a YouTube/Vimeo demo link
-      githubUrl: '', // TODO(Grace): add a GitHub link if the repo is public
+        'Building an Unreal Engine prototype that imports garments prepared in CLO, simulates them with Chaos Cloth, and lets a user select clothing from a personal wardrobe for real-time avatar preview.',
+      video: '',
+      githubUrl: '',
     },
   ],
   other: [
     {
       id: 'dlmon-teacher-studio',
       title: 'DLMon Teacher Studio',
-      description: 'AI-assisted educational platform using LLMs and speech recognition.',
-      githubUrl: '',
+      description:
+        'A full-stack Chinese teaching workspace with local-LLM curriculum generation, assignment feedback, and text analysis.',
+      stack: ['Next.js', 'Prisma', 'Local LLM', 'AI SDK'],
+      githubUrl: 'https://github.com/GraceCheong/dlmon',
     },
     {
       id: 'po-rr',
-      title: 'PO,RR',
-      description: 'Automated presentation generation and deployment system.',
-      githubUrl: '',
+      title: 'PO,RR Worship PPT',
+      description:
+        'A presentation-generation system with a desktop client, FastAPI server, template synchronization, and multi-backend PowerPoint generation.',
+      stack: ['Python', 'FastAPI', 'React', 'PowerPoint automation'],
+      githubUrl: 'https://github.com/GraceCheong/ppt-gen',
     },
   ],
 }
@@ -208,7 +181,7 @@ export const educationTimeline = [
     date: 'JUN 2023 — FEB 2026',
     title: 'Media Lab, Korea University',
     org: 'Research Student',
-    extra: '',
+    extra: '3D vision · human reconstruction · camera geometry',
   },
   {
     date: 'MAR 2015 — AUG 2021',
@@ -219,14 +192,14 @@ export const educationTimeline = [
 ]
 
 export const skillGroups = [
-  { title: 'Programming & Frameworks', chips: ['Python', 'C++', 'PyTorch'] },
+  { title: 'Programming & ML', chips: ['Python', 'C++', 'PyTorch', 'Transformers'] },
   {
     title: '3D Vision & Graphics',
-    chips: ['OpenGL', 'Unity', 'Unreal Engine', 'SMPL-X', 'Human Mesh Recovery', 'Camera Geometry'],
+    chips: ['Camera Geometry', 'Human Mesh Recovery', 'SMPL-X', 'OpenGL', 'Unity', 'Unreal Engine'],
   },
   {
-    title: 'Deep Learning',
-    chips: ['Transformers', 'Diffusion Models', 'Vector Quantization', 'CNN-based Vision Models'],
+    title: 'Representation Learning',
+    chips: ['Vector Quantization', 'Vision Transformers', 'CNN-based Vision Models', 'Diffusion Models'],
   },
-  { title: 'Tools', chips: ['Git', 'Linux', 'Conda'] },
+  { title: 'Engineering', chips: ['Git', 'Linux', 'FastAPI', 'React', 'Conda'] },
 ]

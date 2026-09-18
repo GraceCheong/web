@@ -25,7 +25,7 @@ export const researchItems = [
   {
     id: 'cameravq',
     period: '2025 — 2026',
-    status: 'Accepted · First author · M.S. thesis',
+    status: 'Published · First author · M.S. thesis',
     category: 'Camera Geometry',
     tags: ['Monocular calibration', 'Vector quantization', 'DINOv3'],
     title: 'CameraVQ',
@@ -97,16 +97,19 @@ export const publications = [
   {
     id: 'publication-cameravq',
     year: '2026',
+    status: 'PUBLISHED',
     type: 'JOURNAL · FIRST AUTHOR',
     title: 'CameraVQ: Vector-Quantized Representations for Monocular Camera Calibration',
     authors: [{ name: 'DaEun Cheong', me: true }, { name: 'Jung Hyun Han' }],
-    venue: 'Computer Animation and Virtual Worlds · accepted',
+    venue: 'Computer Animation and Virtual Worlds · 37(3), e70144',
+    doiUrl: 'https://doi.org/10.1002/cav.70144',
   },
   {
     id: 'publication-xr',
     year: '2025',
+    status: 'PUBLISHED',
     type: 'JOURNAL',
-    title: 'Interaction with Virtual Objects Using Human Pose and Shape Estimation',
+    title: 'Interaction With Virtual Objects Using Human Pose and Shape Estimation',
     authors: [
       { name: 'Hong Son Nguyen' },
       { name: 'DaEun Cheong', me: true },
@@ -116,12 +119,14 @@ export const publications = [
       { name: 'Jung Hyun Han' },
     ],
     venue: 'Computer Animation and Virtual Worlds · 36(3), e70046',
+    doiUrl: 'https://doi.org/10.1002/cav.70046',
   },
   {
     id: 'publication-ieeevr',
     year: '2025',
+    status: 'PUBLISHED',
     type: 'CONFERENCE POSTER',
-    title: 'Full-Body Interaction in Mixed Reality Using 3D Pose and Shape Estimation',
+    title: 'Full-Body Interaction in Mixed Reality using 3D Pose and Shape Estimation',
     authors: [
       { name: 'Hong Son Nguyen' },
       { name: 'Andrew Chalmers' },
@@ -130,7 +135,8 @@ export const publications = [
       { name: 'Taehyun Rhee' },
       { name: 'Jung Hyun Han' },
     ],
-    venue: 'IEEE VR Abstracts and Workshops',
+    venue: '2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW) · pp. 1306–1307',
+    doiUrl: 'https://doi.org/10.1109/VRW66409.2025.00299',
   },
 ]
 

@@ -3,44 +3,56 @@ import { EmailIcon, ScholarIcon, GitHubIcon, LinkedInIcon } from './Icons'
 
 export default function Hero() {
   return (
-    <section className="hero wrap" id="top" style={{ maxWidth: 'none' }}>
+    <section className="hero" id="top">
       <div className="hero-grid" aria-hidden="true" />
       <div className="hero-inner wrap">
-        <p className="eyebrow">{profile.eyebrow}</p>
-        <h1 style={{ marginTop: 14 }}>
-          {profile.headingLead}
-          <br />
-          {profile.headingRest}
-          <em>{profile.headingEmphasis}</em>
-        </h1>
-        <div className="intro">
-          {profile.intro.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+        <div className="hero-copy">
+          <p className="eyebrow">{profile.eyebrow}</p>
+          <h1>
+            {profile.headingLead}
+            <br />
+            {profile.headingRest}
+            <em>{profile.headingEmphasis}</em>
+          </h1>
+          <div className="intro">
+            {profile.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="hero-links">
+            <a className="btn primary" href="#contact">
+              <EmailIcon />
+              Contact
+            </a>
+            <a className="btn" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
+              <ScholarIcon />
+              Scholar
+            </a>
+            <a className="btn" href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+              <GitHubIcon />
+              GitHub
+            </a>
+            <a className="btn" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <aside className="hero-focus" aria-label="Research profile summary">
+          <span className="hero-focus-label">PROFILE</span>
+          {profile.focus.map((item) => (
+            <div className="hero-focus-row" key={item.label}>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </div>
           ))}
-        </div>
-        <div className="hero-links">
-          <a className="btn primary" href={`mailto:${profile.email}`}>
-            <EmailIcon />
-            Email
-          </a>
-          <a className="btn" href={profile.scholarUrl} target="_blank" rel="noopener">
-            <ScholarIcon />
-            Scholar
-          </a>
-          <a className="btn" href={profile.githubUrl} target="_blank" rel="noopener">
-            <GitHubIcon />
-            GitHub
-          </a>
-          <a className="btn" href={profile.linkedinUrl || '#'} target="_blank" rel="noopener">
-            <LinkedInIcon />
-            LinkedIn
-          </a>
-        </div>
-        <div className="hero-note">
-          {profile.note.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
-        </div>
+          <div className="hero-note">
+            {profile.note.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </div>
+        </aside>
       </div>
     </section>
   )

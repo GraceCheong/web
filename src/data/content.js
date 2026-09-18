@@ -1,7 +1,7 @@
 export const profile = {
   name: 'DaEun Cheong',
   wordmarkTag: '3D VISION · RESEARCH',
-  eyebrow: '3D Vision · Geometric Representation Learning · 3D Reconstruction',
+  eyebrow: '3D Vision · Deep Learning',
   headingLead: 'Learning representations',
   headingRest: 'for ',
   headingEmphasis: '3D perception.',
@@ -16,6 +16,7 @@ export const profile = {
   ],
   note: ['M.S. Computer Science & Engineering', 'Korea University · 2026'],
   email: 'wjdekdms001@gmail.com',
+  phone: '+82 10-3205-9418',
   scholarUrl: 'https://scholar.google.com/citations?user=zyTJIzsAAAAJ&hl=en',
   githubUrl: 'https://github.com/GraceCheong',
   linkedinUrl: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-32636325a/',

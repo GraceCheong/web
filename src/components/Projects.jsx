@@ -92,7 +92,7 @@ export default function Projects() {
   return (
     <section className="wrap" id="projects">
       <div className="section-head">
-        <span className="eyebrow">03 / Projects</span>
+        <span className="eyebrow">04 / Projects</span>
         <h2>Projects</h2>
         <p className="lead">
           Research and development projects, ordered from the most recent work.

@@ -89,7 +89,7 @@ export default function Publications() {
     <section className="wrap section" id="publications">
       <div className="section-head split-head">
         <div>
-          <span className="eyebrow">03 / Publications</span>
+          <span className="eyebrow">03</span>
           <h2>Publications</h2>
         </div>
         <a className="text-link section-link" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">

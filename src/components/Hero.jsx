@@ -1,5 +1,5 @@
 import { profile } from '../data/content'
-import { EmailIcon, ScholarIcon, GitHubIcon, LinkedInIcon } from './Icons'
+import { ScholarIcon, GitHubIcon, LinkedInIcon } from './Icons'
 
 export default function Hero() {
   return (
@@ -19,11 +19,10 @@ export default function Hero() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+          <a className="hero-email" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </a>
           <div className="hero-links">
-            <a className="btn primary" href="#contact">
-              <EmailIcon />
-              Contact
-            </a>
             <a className="btn" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
               <ScholarIcon />
               Scholar

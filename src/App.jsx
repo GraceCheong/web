@@ -6,7 +6,6 @@ import ResearchDirection from './components/ResearchDirection'
 import Publications from './components/Publications'
 import SideProjects from './components/SideProjects'
 import About from './components/About'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { researchItems } from './data/content'
 
@@ -32,7 +31,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Contact />
         <TimelineSection
           id="research"
           eyebrow="01 / Selected Research"

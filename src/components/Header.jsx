@@ -2,7 +2,6 @@ import { useScrollSpy } from '../hooks/useScrollSpy'
 import { profile } from '../data/content'
 
 const NAV_LINKS = [
-  { id: 'contact', label: 'Contact' },
   { id: 'research', label: 'Research' },
   { id: 'publications', label: 'Publications' },
   { id: 'direction', label: 'Direction' },

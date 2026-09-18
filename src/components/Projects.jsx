@@ -3,53 +3,52 @@ import { projects } from '../data/content'
 import VideoEmbed from './VideoEmbed'
 import { GitHubIcon } from './Icons'
 
-function ProjectCard({ project }) {
+function ProjectRow({ project }) {
   const [open, setOpen] = useState(false)
   const panelId = `${project.id}-details`
-  const hasMedia = project.images?.length > 0 || Boolean(project.video)
 
   return (
-    <article className="work-card project-card">
-      <div className="work-card-meta">
-        <span className="mono">{project.period}</span>
-        <span>{project.status}</span>
-      </div>
+    <article className="work-row">
+      <div className="work-row-main">
+        <div className="work-row-content">
+          <div className="work-meta">
+            <span className="mono">{project.period}</span>
+            <span>{project.status}</span>
+          </div>
 
-      <h3 className="work-card-title">{project.title}</h3>
+          <h3 className="work-title">{project.title}</h3>
 
-      <div className="tags">
-        {project.tags?.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </div>
+          <p className="work-summary">{project.description}</p>
 
-      <p className="work-summary">{project.description}</p>
+          <div className="tags compact-tags">
+            {project.tags?.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
 
-      {project.images?.[0] && (
-        <div className="work-preview">
-          <span className="field-label media-label">Result</span>
           <button
-          type="button"
-          className="media-thumbnail-button"
-          aria-expanded={open}
-          aria-controls={panelId}
-          onClick={() => setOpen(true)}
-        >
-          <img className="work-thumbnail" src={project.images[0]} alt={`${project.title} result`} />
+            type="button"
+            className="work-toggle"
+            aria-expanded={open}
+            aria-controls={panelId}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? 'Close' : 'Details & results'}
+            <span aria-hidden="true">{open ? '−' : '+'}</span>
           </button>
         </div>
-      )}
 
-      <button
-        type="button"
-        className="work-toggle"
-        aria-expanded={open}
-        aria-controls={panelId}
-        onClick={() => setOpen((value) => !value)}
-      >
-        {open ? 'Hide details' : hasMedia ? 'Project details & results' : 'Project details'}
-        <span aria-hidden="true">{open ? '−' : '+'}</span>
-      </button>
+        {project.images?.[0] && (
+          <button
+            type="button"
+            className="work-thumb-button"
+            aria-label={`Open details for ${project.title}`}
+            onClick={() => setOpen(true)}
+          >
+            <img className="work-thumb" src={project.images[0]} alt="" />
+          </button>
+        )}
+      </div>
 
       {open && (
         <div className="work-details" id={panelId}>
@@ -79,7 +78,7 @@ function ProjectCard({ project }) {
               </a>
             )}
             {project.githubUrl && (
-              <a className="text-link sp-github" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a className="text-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
                 Repository
               </a>
@@ -93,18 +92,15 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   return (
-    <section className="wrap" id="projects">
+    <section className="wrap section" id="projects">
       <div className="section-head">
         <span className="eyebrow">04 / Projects</span>
         <h2>Projects</h2>
-        <p className="lead">
-          Research and development projects, ordered from the most recent work.
-        </p>
       </div>
 
       <div className="work-list">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectRow key={project.id} project={project} />
         ))}
       </div>
     </section>

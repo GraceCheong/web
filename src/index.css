@@ -267,34 +267,6 @@ nav.toplinks a.is-active{
   font-size:10.5px;
 }
 
-/* Contact strip */
-.contact-strip{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:50px;
-  align-items:center;
-  margin-top:34px;
-  margin-bottom:86px;
-  padding:26px 28px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--surface);
-  box-shadow:var(--shadow);
-}
-.contact-copy h2{margin-top:4px;font-size:22px}
-.contact-copy p{
-  max-width:68ch;
-  margin:6px 0 0;
-  color:var(--ink-soft);
-  font-size:14px;
-}
-.contact-actions{
-  display:flex;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
 /* Sections */
 main{padding-bottom:28px}
 section.wrap{scroll-margin-top:96px;margin-bottom:96px}
@@ -678,8 +650,6 @@ footer a:hover{color:var(--accent)}
 @media (max-width:860px){
   .hero-inner{grid-template-columns:1fr;gap:42px;padding-block:66px 54px}
   .hero-focus{max-width:620px}
-  .contact-strip{grid-template-columns:1fr;gap:18px}
-  .contact-actions{justify-content:flex-start}
   .direction-grid{grid-template-columns:1fr}
   .direction-grid > div{min-height:0}
   .direction-grid h3{margin-top:18px}
@@ -692,7 +662,6 @@ footer a:hover{color:var(--accent)}
   nav.toplinks a{padding-inline:7px;font-size:10.5px}
   .hero h1{font-size:clamp(38px,12vw,54px)}
   .hero-inner{padding-block:52px 44px}
-  .contact-strip{margin-top:22px;margin-bottom:68px;padding:22px 20px}
   section.wrap{margin-bottom:72px}
   .section-head h2{font-size:30px}
   .split-head{display:block}

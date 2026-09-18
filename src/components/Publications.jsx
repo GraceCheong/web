@@ -31,9 +31,8 @@ function PublicationRow({ pub }) {
           </p>
 
           <p className="publication-meta">
-            {pub.institutions?.join(' · ')}
-            {pub.institutions?.length ? ' · ' : ''}
-            {pub.venue}
+            <span>{pub.institutions?.join(' · ')}</span>
+            <span className="publication-venue">{pub.venue}</span>
           </p>
 
           <button

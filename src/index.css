@@ -170,9 +170,16 @@ nav.toplinks a.is-active{
 .hero-copy{
   max-width:760px;
 }
+.hero-contact-block{
+  margin-top:22px;
+}
+.hero-name{
+  font-size:clamp(30px,4vw,42px);
+  line-height:1.05;
+}
 .hero .intro{
   max-width:66ch;
-  margin-top:28px;
+  margin-top:30px;
 }
 .hero .intro p{
   margin:0 0 8px;
@@ -185,7 +192,7 @@ nav.toplinks a.is-active{
   flex-direction:column;
   align-items:flex-start;
   gap:3px;
-  margin-top:20px;
+  margin-top:12px;
   font-family:"IBM Plex Mono",monospace;
   font-size:12.5px;
 }

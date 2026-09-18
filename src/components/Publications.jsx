@@ -37,7 +37,9 @@ function PublicationCard({ pub }) {
       <p className="publication-venue">{pub.venue}</p>
 
       {pub.mainFigure && (
-        <button
+        <div className="work-preview">
+          <span className="field-label media-label">Main figure</span>
+          <button
           type="button"
           className="media-thumbnail-button"
           aria-expanded={open}
@@ -45,7 +47,8 @@ function PublicationCard({ pub }) {
           onClick={() => setOpen(true)}
         >
           <img className="work-thumbnail" src={pub.mainFigure} alt={`Main figure from ${pub.title}`} />
-        </button>
+          </button>
+        </div>
       )}
 
       <button

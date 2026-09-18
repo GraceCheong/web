@@ -26,7 +26,9 @@ function ProjectCard({ project }) {
       <p className="work-summary">{project.description}</p>
 
       {project.images?.[0] && (
-        <button
+        <div className="work-preview">
+          <span className="field-label media-label">Result</span>
+          <button
           type="button"
           className="media-thumbnail-button"
           aria-expanded={open}
@@ -34,7 +36,8 @@ function ProjectCard({ project }) {
           onClick={() => setOpen(true)}
         >
           <img className="work-thumbnail" src={project.images[0]} alt={`${project.title} result`} />
-        </button>
+          </button>
+        </div>
       )}
 
       <button

@@ -13,60 +13,6 @@ export const profile = {
   linkedinUrl: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-32636325a/',
 }
 
-export const researchItems = [
-  {
-    id: 'cameravq',
-    period: '2025 — 2026',
-    status: 'Published · First author · M.S. thesis',
-    category: 'Camera Geometry',
-    tags: ['Monocular calibration', 'Vector quantization', 'DINOv3'],
-    title: 'CameraVQ',
-    subtitle: 'Vector-Quantized Representations for Monocular Camera Calibration',
-    summary:
-      'A representation-learning approach to monocular camera calibration that models camera intrinsics with a learned discrete codebook and predicts them from a single image.',
-    context: 'First-author research · M.S. thesis · Korea University Media Lab',
-    question:
-      'Can a discrete representation of camera intrinsics provide a useful target space for monocular calibration from visual observations?',
-    method:
-      'A VQ-based model learns codes for normalized camera intrinsics, while frozen visual features are used to predict the corresponding camera representation from one image.',
-    contribution:
-      'Introduces a discrete representation for camera intrinsics and connects representation learning directly with monocular camera geometry, enabling calibration to be framed as prediction in a learned code space.',
-    diagram: [
-      { label: 'OBSERVATION', value: 'Single image' },
-      { label: 'VISUAL FEATURE', value: 'Frozen image encoder' },
-      { label: 'REPRESENTATION', value: 'Camera code', accent: true },
-      { label: 'GEOMETRY', value: 'Camera intrinsics' },
-    ],
-    diagramCaption: 'Conceptual overview · image evidence is mapped to a learned camera representation.',
-    video: '',
-    links: [{ label: 'Publication', href: '#publication-cameravq' }],
-  },
-  {
-    id: 'xr-interaction',
-    period: '2023 — 2025',
-    status: 'Published · Collaborative research',
-    category: 'Humans & Interaction',
-    tags: ['Human mesh recovery', 'Mixed reality', 'Real-time interaction'],
-    title: 'Human reconstruction for XR interaction',
-    subtitle: 'Monocular human estimation in interactive environments',
-    summary:
-      'A real-time pipeline that uses monocular human pose and shape estimation as full-body geometry for interaction with virtual objects in mixed reality.',
-    context: 'Collaborative research · Korea University Media Lab',
-    question: 'How can estimated 3D human geometry support natural full-body interaction with virtual objects?',
-    method:
-      'Integrated monocular human pose and shape estimation with an XR interaction pipeline and compared alternative body representations in an interactive user study.',
-    contribution:
-      'Connected monocular human reconstruction to a practical mixed-reality interaction system and evaluated how different body representations affect the interaction experience.',
-    interactionMap: [
-      { step: '01', title: 'Observe', detail: 'Monocular visual input' },
-      { step: '02', title: 'Reconstruct', detail: '3D human pose and shape' },
-      { step: '03', title: 'Interact', detail: 'Full-body interaction in XR' },
-    ],
-    video: '',
-    links: [{ label: 'Related publications', href: '#publication-xr' }],
-  },
-]
-
 export const researchDirection = {
   lead: 'I am interested in 3D perception models that learn geometry-aware representations and use them to reconstruct and reason about 3D structure from visual observations. I also care about bringing those models into practical, real-time systems.',
   pillars: [
@@ -92,9 +38,17 @@ export const publications = [
     status: 'PUBLISHED',
     type: 'JOURNAL · FIRST AUTHOR',
     title: 'CameraVQ: Vector-Quantized Representations for Monocular Camera Calibration',
-    authors: [{ name: 'DaEun Cheong', me: true }, { name: 'Jung Hyun Han' }],
+    authors: [
+      { name: 'DaEun Cheong', me: true },
+      { name: 'Jung Hyun Han' },
+    ],
+    institutions: ['Media Lab, Korea University'],
     venue: 'Computer Animation and Virtual Worlds · 37(3), e70144',
     doiUrl: 'https://doi.org/10.1002/cav.70144',
+    abstract:
+      'CameraVQ reformulates monocular camera calibration as classification over vector-quantized camera intrinsics. A learned discrete codebook constrains predictions to plausible camera configurations and improves robustness and generalization across diverse calibration benchmarks.',
+    mainFigure: '',
+    video: '',
   },
   {
     id: 'publication-xr',
@@ -110,8 +64,17 @@ export const publications = [
       { name: 'Taehyun Rhee' },
       { name: 'Jung Hyun Han' },
     ],
+    institutions: [
+      'Korea University',
+      'Victoria University of Wellington',
+      'The University of Melbourne',
+    ],
     venue: 'Computer Animation and Virtual Worlds · 36(3), e70046',
     doiUrl: 'https://doi.org/10.1002/cav.70046',
+    abstract:
+      'This work presents an AR interaction system built from human pose and shape estimation, camera-space calibration, and physics simulation. A single RGB video stream is used to reconstruct the user and support physically meaningful interaction with virtual objects.',
+    mainFigure: '',
+    video: '',
   },
   {
     id: 'publication-ieeevr',
@@ -127,46 +90,69 @@ export const publications = [
       { name: 'Taehyun Rhee' },
       { name: 'Jung Hyun Han' },
     ],
-    venue: '2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW) · pp. 1306–1307',
+    institutions: [
+      'Korea University',
+      'Victoria University of Wellington',
+      'The University of Melbourne',
+    ],
+    venue: '2025 IEEE VR Abstracts and Workshops · pp. 1306–1307',
     doiUrl: 'https://doi.org/10.1109/VRW66409.2025.00299',
+    abstract:
+      'This poster presents a pipeline that estimates a user’s 3D pose and shape for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
+    mainFigure: '',
+    video: '',
   },
 ]
 
-export const sideProjects = {
-  featured: [
-    {
-      id: 'digital-wardrobe',
-      title: 'Digital Wardrobe',
-      status: 'In development',
-      subtitle: 'Real-time Virtual Garment Try-On in Unreal Engine',
-      stack: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
-      problem:
-        'Virtual try-on is often presented as an isolated garment demo. This project explores a reusable personal wardrobe workflow where owned garments can be organized and previewed on a 3D avatar.',
-      whatBuilt:
-        'Building an Unreal Engine prototype that imports garments prepared in CLO, simulates them with Chaos Cloth, and lets a user select clothing from a personal wardrobe for real-time avatar preview.',
-      video: '',
-      githubUrl: '',
-    },
-  ],
-  other: [
-    {
-      id: 'dlmon-teacher-studio',
-      title: 'DLMon Teacher Studio',
-      description:
-        'A full-stack Chinese teaching workspace with local-LLM curriculum generation, assignment feedback, and text analysis.',
-      stack: ['Next.js', 'Prisma', 'Local LLM', 'AI SDK'],
-      githubUrl: 'https://github.com/GraceCheong/dlmon',
-    },
-    {
-      id: 'po-rr',
-      title: 'PO,RR Worship PPT',
-      description:
-        'A presentation-generation system with a desktop client, FastAPI server, template synchronization, and multi-backend PowerPoint generation.',
-      stack: ['Python', 'FastAPI', 'React', 'PowerPoint automation'],
-      githubUrl: 'https://github.com/GraceCheong/ppt-gen',
-    },
-  ],
-}
+export const projects = [
+  {
+    id: 'xr-interaction-project',
+    title: 'Human Reconstruction for XR Interaction',
+    period: '2023 — 2025',
+    status: 'Research system',
+    tags: ['Human mesh recovery', 'Mixed reality', 'Unity', 'Real-time 3D'],
+    description:
+      'Integrated monocular human pose and shape estimation into a real-time XR pipeline so reconstructed human geometry could drive collision, occlusion, and full-body interaction with virtual objects.',
+    role:
+      'Worked on the real-time human reconstruction pipeline and integration of monocular mesh estimation with the interactive XR system.',
+    images: [],
+    video: '',
+    relatedPublication: '#publication-xr',
+  },
+  {
+    id: 'digital-wardrobe',
+    title: 'Digital Wardrobe',
+    period: '2026 —',
+    status: 'In development',
+    tags: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
+    description:
+      'A personal virtual wardrobe prototype for organizing owned garments and previewing them on a 3D avatar with real-time garment simulation.',
+    role:
+      'Building the Unreal Engine pipeline for avatar-based garment preview, including garments prepared in CLO and simulated with Chaos Cloth.',
+    images: [],
+    video: '',
+    githubUrl: '',
+  },
+]
+
+export const sideProjects = [
+  {
+    id: 'dlmon-teacher-studio',
+    title: 'DLMon Teacher Studio',
+    description:
+      'A full-stack Chinese teaching workspace with local-LLM curriculum generation, assignment feedback, and text analysis.',
+    stack: ['Next.js', 'Prisma', 'Local LLM', 'AI SDK'],
+    githubUrl: 'https://github.com/GraceCheong/dlmon',
+  },
+  {
+    id: 'po-rr',
+    title: 'PO,RR Worship PPT',
+    description:
+      'A presentation-generation system with a desktop client, FastAPI server, template synchronization, and multi-backend PowerPoint generation.',
+    stack: ['Python', 'FastAPI', 'React', 'PowerPoint automation'],
+    githubUrl: 'https://github.com/GraceCheong/ppt-gen',
+  },
+]
 
 export const educationTimeline = [
   {

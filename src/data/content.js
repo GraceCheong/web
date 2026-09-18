@@ -34,7 +34,7 @@ export const researchDirection = {
 export const publications = [
   {
     id: 'publication-cameravq',
-    year: '2026',
+    year: 'MAY 2026',
     status: 'PUBLISHED',
     type: 'JOURNAL · FIRST AUTHOR',
     title: 'CameraVQ: Vector-Quantized Representations for Monocular Camera Calibration',
@@ -52,7 +52,7 @@ export const publications = [
   },
   {
     id: 'publication-xr',
-    year: '2025',
+    year: 'JUN 2025',
     status: 'PUBLISHED',
     type: 'JOURNAL',
     title: 'Interaction With Virtual Objects Using Human Pose and Shape Estimation',
@@ -78,7 +78,7 @@ export const publications = [
   },
   {
     id: 'publication-ieeevr',
-    year: '2025',
+    year: 'MAR 2025',
     status: 'PUBLISHED',
     type: 'CONFERENCE POSTER',
     title: 'Full-Body Interaction in Mixed Reality using 3D Pose and Shape Estimation',

@@ -17,7 +17,7 @@ export default function Publications() {
           <article className="publication" id={pub.id} key={pub.id}>
             <div className="pub-year mono">{pub.year}</div>
             <div>
-              <span className="pub-type">{pub.type}</span>
+              <span className="pub-type">{pub.status ? `${pub.status} · ${pub.type}` : pub.type}</span>
               <h3>{pub.title}</h3>
               <p>
                 {pub.authors.map((author, i) => (
@@ -28,6 +28,11 @@ export default function Publications() {
                 ))}
               </p>
               <p className="venue">{pub.venue}</p>
+              {pub.doiUrl && (
+                <a className="text-link pub-doi" href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
+                  DOI &nearr;
+                </a>
+              )}
             </div>
           </article>
         ))}

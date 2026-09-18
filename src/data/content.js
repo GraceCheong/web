@@ -106,20 +106,6 @@ export const publications = [
 
 export const projects = [
   {
-    id: 'xr-interaction-project',
-    title: 'Human Reconstruction for XR Interaction',
-    period: '2023 — 2025',
-    status: 'Research system',
-    tags: ['Human mesh recovery', 'Mixed reality', 'Unity', 'Real-time 3D'],
-    description:
-      'Integrated monocular human pose and shape estimation into a real-time XR pipeline so reconstructed human geometry could drive collision, occlusion, and full-body interaction with virtual objects.',
-    role:
-      'Worked on the real-time human reconstruction pipeline and integration of monocular mesh estimation with the interactive XR system.',
-    images: [],
-    video: '',
-    relatedPublication: '#publication-xr',
-  },
-  {
     id: 'digital-wardrobe',
     title: 'Digital Wardrobe',
     period: '2026 —',
@@ -133,24 +119,40 @@ export const projects = [
     video: '',
     githubUrl: '',
   },
+  {
+    id: 'xr-interaction-project',
+    title: 'Human Reconstruction for XR Interaction',
+    period: '2023 — 2025',
+    status: 'Completed',
+    tags: ['Human mesh recovery', 'Mixed reality', 'Unity', 'Real-time 3D'],
+    description:
+      'Integrated monocular human pose and shape estimation into a real-time XR pipeline so reconstructed human geometry could drive collision, occlusion, and full-body interaction with virtual objects.',
+    role:
+      'Worked on the real-time human reconstruction pipeline and integration of monocular mesh estimation with the interactive XR system.',
+    images: [],
+    video: '',
+    relatedPublication: '#publication-xr',
+  },
 ]
 
 export const sideProjects = [
   {
-    id: 'dlmon-teacher-studio',
-    title: 'DLMon Teacher Studio',
-    description:
-      'A full-stack Chinese teaching workspace with local-LLM curriculum generation, assignment feedback, and text analysis.',
-    stack: ['Next.js', 'Prisma', 'Local LLM', 'AI SDK'],
-    githubUrl: 'https://github.com/GraceCheong/dlmon',
-  },
-  {
     id: 'po-rr',
+    period: 'JUN 2026 —',
     title: 'PO,RR Worship PPT',
     description:
       'A presentation-generation system with a desktop client, FastAPI server, template synchronization, and multi-backend PowerPoint generation.',
     stack: ['Python', 'FastAPI', 'React', 'PowerPoint automation'],
     githubUrl: 'https://github.com/GraceCheong/ppt-gen',
+  },
+  {
+    id: 'dlmon-teacher-studio',
+    period: 'MAY 2026',
+    title: 'DLMon Teacher Studio',
+    description:
+      'A full-stack Chinese teaching workspace with local-LLM curriculum generation, assignment feedback, and text analysis.',
+    stack: ['Next.js', 'Prisma', 'Local LLM', 'AI SDK'],
+    githubUrl: 'https://github.com/GraceCheong/dlmon',
   },
 ]
 

@@ -30,11 +30,11 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <About />
         <ResearchDirection />
         <Publications />
         <Projects />
         <SideProjects />
-        <About />
       </main>
       <Footer />
     </>

@@ -188,11 +188,24 @@ nav.toplinks a.is-active{
   font-size:16.5px;
 }
 .hero .intro p:first-child{color:var(--ink);font-size:18px}
+.hero-email{
+  display:inline-block;
+  margin-top:20px;
+  color:var(--ink);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;
+  text-decoration:none;
+  border-bottom:1px solid var(--line-strong);
+}
+.hero-email:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+}
 .hero-links{
   display:flex;
   flex-wrap:wrap;
   gap:9px;
-  margin-top:28px;
+  margin-top:14px;
 }
 .btn{
   display:inline-flex;

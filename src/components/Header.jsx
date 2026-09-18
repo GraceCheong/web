@@ -2,11 +2,12 @@ import { useScrollSpy } from '../hooks/useScrollSpy'
 import { profile } from '../data/content'
 
 const NAV_LINKS = [
+  { id: 'contact', label: 'Contact' },
   { id: 'research', label: 'Research' },
   { id: 'publications', label: 'Publications' },
-  { id: 'side-projects', label: 'Side Projects' },
-  { id: 'about', label: 'About' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'direction', label: 'Direction' },
+  { id: 'side-projects', label: 'Projects' },
+  { id: 'about', label: 'Background' },
 ]
 
 export default function Header() {

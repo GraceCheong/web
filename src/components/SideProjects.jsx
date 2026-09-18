@@ -8,7 +8,11 @@ function FeaturedProject({ project }) {
   const panelId = `${project.id}-panel`
 
   return (
-    <article className="sp-card">
+    <article className="sp-card sp-card-featured">
+      <div className="sp-card-topline">
+        <span className="project-kicker">FEATURED BUILD</span>
+        {project.status && <span className="project-status">{project.status}</span>}
+      </div>
       <h3>{project.title}</h3>
       <p className="subtitle">{project.subtitle}</p>
       <div className="tags">
@@ -24,29 +28,27 @@ function FeaturedProject({ project }) {
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
       >
-        {open ? 'Hide details' : 'View details'}
+        {open ? 'Hide details' : 'View build details'}
         <span className="tl-toggle-icon">{open ? '−' : '+'}</span>
       </button>
 
       {open && (
         <div id={panelId} className="tl-panel">
-          {project.problem && (
-            <div className="columns">
-              <div>
-                <h4>Problem</h4>
-                <p>{project.problem}</p>
-              </div>
-              <div>
-                <h4>What I Built</h4>
-                <p>{project.whatBuilt}</p>
-              </div>
+          <div className="columns">
+            <div>
+              <h4>Goal</h4>
+              <p>{project.problem}</p>
             </div>
-          )}
+            <div>
+              <h4>What I am building</h4>
+              <p>{project.whatBuilt}</p>
+            </div>
+          </div>
 
           {project.video && <VideoEmbed url={project.video} title={`${project.title} demo`} />}
 
           {project.githubUrl && (
-            <a className="text-link sp-github" href={project.githubUrl} target="_blank" rel="noopener">
+            <a className="text-link sp-github" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
               <GitHubIcon />
               GitHub
             </a>
@@ -61,15 +63,15 @@ export default function SideProjects() {
   return (
     <section className="wrap" id="side-projects">
       <div className="section-head">
-        <span className="eyebrow">04 / Side Projects</span>
+        <span className="eyebrow">04 / Engineering &amp; Side Projects</span>
         <h2>
-          Building systems around
+          Systems built beyond
           <br />
-          3D vision and intelligent applications.
+          the research prototype.
         </h2>
         <p className="lead">
-          Applied and engineering work that extends the research above into interactive systems — supporting
-          evidence for the research, not a separate track.
+          Independent projects that show how I turn technical ideas into working tools, services, and interactive
+          applications.
         </p>
       </div>
 
@@ -80,19 +82,27 @@ export default function SideProjects() {
       </div>
 
       {sideProjects.other?.length > 0 && (
-        <ul className="sp-other">
+        <div className="sp-other-grid">
           {sideProjects.other.map((project) => (
-            <li key={project.id}>
-              <span className="sp-other-title">{project.title}</span>
-              <span className="sp-other-desc">{project.description}</span>
+            <article className="sp-other-card" key={project.id}>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+              <div className="tags compact-tags">
+                {project.stack?.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
               {project.githubUrl && (
-                <a className="text-link" href={project.githubUrl} target="_blank" rel="noopener">
-                  GitHub &nearr;
+                <a className="text-link sp-github" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <GitHubIcon />
+                  Repository
                 </a>
               )}
-            </li>
+            </article>
           ))}
-        </ul>
+        </div>
       )}
     </section>
   )

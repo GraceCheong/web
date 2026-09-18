@@ -5,7 +5,7 @@ export default function SideProjects() {
   return (
     <section className="wrap" id="side-projects">
       <div className="section-head">
-        <span className="eyebrow">04 / Side Projects</span>
+        <span className="eyebrow">05 / Side Projects</span>
         <h2>Side projects</h2>
       </div>
 

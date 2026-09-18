@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import TimelineSection from './components/TimelineSection'
 import ResearchDirection from './components/ResearchDirection'
 import Publications from './components/Publications'
+import Projects from './components/Projects'
 import SideProjects from './components/SideProjects'
 import About from './components/About'
 import Footer from './components/Footer'
-import { researchItems } from './data/content'
 
 export default function App() {
   useEffect(() => {
@@ -31,23 +30,11 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <TimelineSection
-          id="research"
-          eyebrow="01 / Selected Research"
-          heading={
-            <>
-              Research on representations
-              <br />
-              for 3D perception.
-            </>
-          }
-          lead="Two research threads connect my recent work: learning representations for camera geometry, and using reconstructed human geometry in interactive 3D systems."
-          items={researchItems}
-        />
-        <Publications />
-        <ResearchDirection />
-        <SideProjects />
         <About />
+        <ResearchDirection />
+        <Publications />
+        <Projects />
+        <SideProjects />
       </main>
       <Footer />
     </>

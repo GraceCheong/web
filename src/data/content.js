@@ -1,21 +1,13 @@
 export const profile = {
   name: 'DaEun Cheong',
   wordmarkTag: '3D VISION · RESEARCH',
-  eyebrow: '3D Vision · Geometric Representation Learning · 3D Reconstruction',
-  headingLead: 'Learning representations',
-  headingRest: 'for ',
-  headingEmphasis: '3D perception.',
+  eyebrow: '3D Vision · Deep Learning',
   intro: [
     'I am a 3D vision researcher focused on how learned representations can help models infer geometry and structure from images.',
     'My work spans monocular camera calibration, human reconstruction, and real-time 3D systems.',
   ],
-  focus: [
-    { label: 'Research', value: '3D vision · representation learning' },
-    { label: 'Recent work', value: 'CameraVQ · monocular calibration' },
-    { label: 'Systems', value: 'Human reconstruction · XR · real-time 3D' },
-  ],
-  note: ['M.S. Computer Science & Engineering', 'Korea University · 2026'],
   email: 'wjdekdms001@gmail.com',
+  phone: '+82 10-3205-9418',
   scholarUrl: 'https://scholar.google.com/citations?user=zyTJIzsAAAAJ&hl=en',
   githubUrl: 'https://github.com/GraceCheong',
   linkedinUrl: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-32636325a/',

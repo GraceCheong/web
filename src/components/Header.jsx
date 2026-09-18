@@ -3,7 +3,7 @@ import { profile } from '../data/content'
 
 const NAV_LINKS = [
   { id: 'about', label: 'Education' },
-  { id: 'direction', label: 'Direction' },
+  { id: 'direction', label: 'Research' },
   { id: 'publications', label: 'Publications' },
   { id: 'projects', label: 'Projects' },
   { id: 'side-projects', label: 'Side Projects' },
@@ -16,8 +16,7 @@ export default function Header() {
     <header className="topbar">
       <div className="topbar-inner">
         <a className="wordmark" href="#top">
-          <span className="name">{profile.name.toUpperCase()}</span>
-          <span className="tag">{profile.wordmarkTag}</span>
+          {profile.name}
         </a>
         <nav className="toplinks" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (

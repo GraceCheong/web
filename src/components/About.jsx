@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section className="wrap section" id="about">
       <div className="section-head">
-        <span className="eyebrow">01 / Education &amp; Experience</span>
+        <span className="eyebrow">01</span>
         <h2>Education &amp; experience</h2>
       </div>
 

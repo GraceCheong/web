@@ -4,7 +4,7 @@ export default function ResearchDirection() {
   return (
     <section className="wrap section" id="direction">
       <div className="section-head">
-        <span className="eyebrow">02 / Research Direction</span>
+        <span className="eyebrow">02</span>
         <h2>Research direction</h2>
       </div>
 

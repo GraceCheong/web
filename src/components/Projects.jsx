@@ -94,7 +94,7 @@ export default function Projects() {
   return (
     <section className="wrap section" id="projects">
       <div className="section-head">
-        <span className="eyebrow">04 / Projects</span>
+        <span className="eyebrow">04</span>
         <h2>Projects</h2>
       </div>
 

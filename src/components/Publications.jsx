@@ -3,9 +3,14 @@ import { publications, profile } from '../data/content'
 export default function Publications() {
   return (
     <section className="wrap" id="publications">
-      <div className="section-head">
-        <span className="eyebrow">03 / Publications</span>
-        <h2>Selected publications</h2>
+      <div className="section-head split-head">
+        <div>
+          <span className="eyebrow">02 / Publications</span>
+          <h2>Selected publications</h2>
+        </div>
+        <a className="text-link section-link" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
+          Google Scholar &nearr;
+        </a>
       </div>
       <div className="pub-list">
         {publications.map((pub) => (
@@ -27,9 +32,6 @@ export default function Publications() {
           </article>
         ))}
       </div>
-      <a className="text-link" href={profile.scholarUrl} target="_blank" rel="noopener">
-        View Google Scholar &nearr;
-      </a>
     </section>
   )
 }

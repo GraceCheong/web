@@ -11,11 +11,16 @@ import { getContent, getInitialLanguageState } from './data/content'
 
 export default function App() {
   const [languageState, setLanguageState] = useState(getInitialLanguageState)
-  const { lang, source } = languageState
+  const { lang, preserveQuery, syncQuery, syncToStorage } = languageState
   const content = useMemo(() => getContent(lang), [lang])
 
   function setLang(nextLanguage) {
-    setLanguageState({ lang: nextLanguage, source: 'user' })
+    setLanguageState({
+      lang: nextLanguage,
+      preserveQuery: false,
+      syncQuery: true,
+      syncToStorage: true,
+    })
   }
 
   useEffect(() => {
@@ -38,11 +43,11 @@ export default function App() {
     const url = new URL(window.location.href)
     const currentLangParam = url.searchParams.get('lang')
     const hasSupportedLangParam = currentLangParam === 'en' || currentLangParam === 'ko'
-    if (source === 'user') url.searchParams.set('lang', lang)
-    else if (source !== 'query' && hasSupportedLangParam) url.searchParams.delete('lang')
+    if (syncQuery) url.searchParams.set('lang', lang)
+    else if (!preserveQuery && hasSupportedLangParam) url.searchParams.delete('lang')
 
     window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
-    if (source !== 'query') {
+    if (syncToStorage) {
       try {
         window.localStorage.setItem('portfolio-language', lang)
       } catch {}
@@ -52,7 +57,7 @@ export default function App() {
     document.title = content.ui.meta.title
     const descriptionTag = document.querySelector('meta[name="description"]')
     if (descriptionTag) descriptionTag.setAttribute('content', content.ui.meta.description)
-  }, [content.ui.meta.description, content.ui.meta.title, lang, source])
+  }, [content.ui.meta.description, content.ui.meta.title, lang, preserveQuery, syncQuery, syncToStorage])
 
   return (
     <>

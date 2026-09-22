@@ -530,29 +530,33 @@ export function getContent(lang = 'en') {
 
 export function getInitialLanguageState() {
   if (typeof window === 'undefined') {
-    return { lang: 'en', source: 'browser' }
+    return { lang: 'en', syncQuery: false, preserveQuery: false, syncToStorage: false }
   }
 
   const params = new URLSearchParams(window.location.search)
   const queryLanguage = params.get('lang')
   if (queryLanguage === 'ko' || queryLanguage === 'en') {
-    return { lang: queryLanguage, source: 'query' }
+    return { lang: queryLanguage, syncQuery: false, preserveQuery: true, syncToStorage: false }
   }
 
   try {
     const storedLanguage = window.localStorage.getItem('portfolio-language')
     if (storedLanguage === 'ko' || storedLanguage === 'en') {
-      return { lang: storedLanguage, source: 'stored' }
+      return { lang: storedLanguage, syncQuery: false, preserveQuery: false, syncToStorage: true }
     }
   } catch {
     return {
       lang: window.navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en',
-      source: 'browser',
+      syncQuery: false,
+      preserveQuery: false,
+      syncToStorage: false,
     }
   }
 
   return {
     lang: window.navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en',
-    source: 'browser',
+    syncQuery: false,
+    preserveQuery: false,
+    syncToStorage: true,
   }
 }

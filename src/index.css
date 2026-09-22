@@ -103,11 +103,15 @@ nav.toplinks a{
   white-space:nowrap;
 }
 nav.toplinks a:hover,
-nav.toplinks a:focus-visible,
 nav.toplinks a.is-active{
   background:var(--surface);
   color:var(--ink);
-  outline:none;
+}
+nav.toplinks a:focus-visible{
+  background:var(--surface);
+  color:var(--ink);
+  outline:2px solid var(--accent);
+  outline-offset:2px;
 }
 .language-toggle{
   display:inline-flex;
@@ -128,11 +132,15 @@ nav.toplinks a.is-active{
   font-size:9.5px;
 }
 .language-toggle button:hover,
-.language-toggle button:focus-visible,
 .language-toggle button.is-active{
   background:var(--accent-soft);
   color:var(--accent);
-  outline:none;
+}
+.language-toggle button:focus-visible{
+  background:var(--accent-soft);
+  color:var(--accent);
+  outline:2px solid var(--accent);
+  outline-offset:1px;
 }
 
 /* Shared section typography */

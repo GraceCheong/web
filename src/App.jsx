@@ -7,11 +7,16 @@ import Projects from './components/Projects'
 import SideProjects from './components/SideProjects'
 import About from './components/About'
 import Footer from './components/Footer'
-import { getContent, getInitialLanguage } from './data/content'
+import { getContent, getInitialLanguageState } from './data/content'
 
 export default function App() {
-  const [lang, setLang] = useState(getInitialLanguage)
+  const [languageState, setLanguageState] = useState(getInitialLanguageState)
+  const { lang, explicit } = languageState
   const content = useMemo(() => getContent(lang), [lang])
+
+  function setLang(nextLanguage) {
+    setLanguageState({ lang: nextLanguage, explicit: true })
+  }
 
   useEffect(() => {
     function onClick(event) {
@@ -31,7 +36,9 @@ export default function App() {
 
   useEffect(() => {
     const url = new URL(window.location.href)
-    url.searchParams.set('lang', lang)
+    if (explicit) url.searchParams.set('lang', lang)
+    else url.searchParams.delete('lang')
+
     window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
     window.localStorage.setItem('portfolio-language', lang)
 
@@ -39,7 +46,7 @@ export default function App() {
     document.title = content.ui.meta.title
     const descriptionTag = document.querySelector('meta[name="description"]')
     if (descriptionTag) descriptionTag.setAttribute('content', content.ui.meta.description)
-  }, [content.ui.meta.description, content.ui.meta.title, lang])
+  }, [content.ui.meta.description, content.ui.meta.title, explicit, lang])
 
   return (
     <>

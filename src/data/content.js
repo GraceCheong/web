@@ -528,15 +528,24 @@ export function getContent(lang = 'en') {
   return localizeContent(rawContent, lang)
 }
 
-export function getInitialLanguage() {
-  if (typeof window === 'undefined') return 'en'
+export function getInitialLanguageState() {
+  if (typeof window === 'undefined') {
+    return { lang: 'en', explicit: false }
+  }
 
   const params = new URLSearchParams(window.location.search)
   const queryLanguage = params.get('lang')
-  if (queryLanguage === 'ko' || queryLanguage === 'en') return queryLanguage
+  if (queryLanguage === 'ko' || queryLanguage === 'en') {
+    return { lang: queryLanguage, explicit: true }
+  }
 
   const storedLanguage = window.localStorage.getItem('portfolio-language')
-  if (storedLanguage === 'ko' || storedLanguage === 'en') return storedLanguage
+  if (storedLanguage === 'ko' || storedLanguage === 'en') {
+    return { lang: storedLanguage, explicit: false }
+  }
 
-  return window.navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en'
+  return {
+    lang: window.navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en',
+    explicit: false,
+  }
 }

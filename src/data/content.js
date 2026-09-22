@@ -496,6 +496,10 @@ function getLanguageText(source, lang) {
 function resolveLocalizedText(value, lang) {
   if (!isLocalizedText(value)) return value
   return (
+    value.given?.[lang] ??
+    value.translated?.[lang] ??
+    value.given?.en ??
+    value.translated?.en ??
     getLanguageText(value.given, lang) ??
     getLanguageText(value.translated, lang) ??
     ''
@@ -525,6 +529,8 @@ export function getContent(lang = 'en') {
 }
 
 export function getInitialLanguage() {
+  if (typeof window === 'undefined') return 'en'
+
   const params = new URLSearchParams(window.location.search)
   const queryLanguage = params.get('lang')
   if (queryLanguage === 'ko' || queryLanguage === 'en') return queryLanguage

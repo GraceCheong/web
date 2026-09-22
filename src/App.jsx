@@ -36,8 +36,10 @@ export default function App() {
 
   useEffect(() => {
     const url = new URL(window.location.href)
+    const currentLangParam = url.searchParams.get('lang')
+    const hasSupportedLangParam = currentLangParam === 'en' || currentLangParam === 'ko'
     if (explicit) url.searchParams.set('lang', lang)
-    else url.searchParams.delete('lang')
+    else if (hasSupportedLangParam) url.searchParams.delete('lang')
 
     window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
     try {

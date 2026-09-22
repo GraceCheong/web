@@ -32,7 +32,23 @@ npm run preview
 
 ## 콘텐츠 수정
 
-대부분의 콘텐츠는 `src/data/content.js`에서 수정합니다.
+대부분의 콘텐츠는 `src/data/content.js`에서 수정합니다. 영어/한국어 텍스트와 캡션도 이 파일 하나에서 함께 관리합니다.
+
+### 다국어 텍스트 규칙
+
+`src/data/content.js`는 문자열 대신 아래 형태를 사용할 수 있습니다.
+
+- `given`: 직접 확정한 원문/문구
+- `translated`: 번역문
+
+렌더링 시 우선순위는 다음과 같습니다.
+
+1. 현재 언어의 `given`
+2. 현재 언어의 `translated`
+3. 영어 `given`
+4. 영어 `translated`
+
+즉, 같은 언어에 `given` 텍스트가 있으면 `translated`보다 먼저 선택됩니다.
 
 ### Publications
 

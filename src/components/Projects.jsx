@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { projects } from '../data/content'
 import VideoEmbed from './VideoEmbed'
 import { GitHubIcon } from './Icons'
 
-function ProjectRow({ project }) {
+function ProjectRow({ project, labels, repositoryLabel }) {
   const [open, setOpen] = useState(false)
   const panelId = `${project.id}-details`
 
@@ -33,7 +32,7 @@ function ProjectRow({ project }) {
             aria-controls={panelId}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? 'Close' : 'Details & results'}
+            {open ? labels.toggleOpen : labels.toggleClosed}
             <span aria-hidden="true">{open ? '−' : '+'}</span>
           </button>
         </div>
@@ -42,7 +41,7 @@ function ProjectRow({ project }) {
           <button
             type="button"
             className="work-thumb-button"
-            aria-label={`Open details for ${project.title}`}
+            aria-label={`${labels.thumbnailLabel} ${project.title}`}
             onClick={() => setOpen(true)}
           >
             <img className="work-thumb" src={project.images[0]} alt="" />
@@ -54,7 +53,7 @@ function ProjectRow({ project }) {
         <div className="work-details" id={panelId}>
           {project.role && (
             <div className="work-detail-block">
-              <span className="field-label">What I worked on</span>
+              <span className="field-label">{labels.roleLabel}</span>
               <p>{project.role}</p>
             </div>
           )}
@@ -63,24 +62,24 @@ function ProjectRow({ project }) {
             <div className="project-gallery">
               {project.images.map((image, index) => (
                 <figure className="work-figure" key={image}>
-                  <img src={image} alt={`${project.title} result ${index + 1}`} />
+                  <img src={image} alt={`${project.title} ${labels.imageLabel} ${index + 1}`} />
                 </figure>
               ))}
             </div>
           )}
 
-          {project.video && <VideoEmbed url={project.video} title={`${project.title} demo`} />}
+          {project.video && <VideoEmbed url={project.video} title={`${project.title} ${labels.demoLabel}`} />}
 
           <div className="work-links">
             {project.relatedPublication && (
               <a className="text-link" href={project.relatedPublication}>
-                Related publication &darr;
+                {labels.relatedPublication}
               </a>
             )}
             {project.githubUrl && (
               <a className="text-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
-                Repository
+                {repositoryLabel}
               </a>
             )}
           </div>
@@ -90,17 +89,22 @@ function ProjectRow({ project }) {
   )
 }
 
-export default function Projects() {
+export default function Projects({ projects, ui }) {
   return (
     <section className="wrap section" id="projects">
       <div className="section-head">
-        <span className="eyebrow">04</span>
-        <h2>Projects</h2>
+        <span className="eyebrow">{ui.sections.projects.number}</span>
+        <h2>{ui.sections.projects.heading}</h2>
       </div>
 
       <div className="work-list">
         {projects.map((project) => (
-          <ProjectRow key={project.id} project={project} />
+          <ProjectRow
+            key={project.id}
+            project={project}
+            labels={ui.projects}
+            repositoryLabel={ui.profileLinks.repository}
+          />
         ))}
       </div>
     </section>

@@ -70,6 +70,12 @@ p{margin-top:0}
   justify-content:space-between;
   gap:20px;
 }
+.topbar-actions{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 .wordmark{
   flex:none;
   color:var(--ink);
@@ -101,6 +107,31 @@ nav.toplinks a:focus-visible,
 nav.toplinks a.is-active{
   background:var(--surface);
   color:var(--ink);
+  outline:none;
+}
+.language-toggle{
+  display:inline-flex;
+  align-items:center;
+  padding:2px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+}
+.language-toggle button{
+  padding:4px 8px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:var(--ink-faint);
+  cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:9.5px;
+}
+.language-toggle button:hover,
+.language-toggle button:focus-visible,
+.language-toggle button.is-active{
+  background:var(--accent-soft);
+  color:var(--accent);
   outline:none;
 }
 
@@ -532,9 +563,22 @@ footer a:hover{color:var(--accent)}
 
 @media (max-width:720px){
   .wrap,.topbar-inner,footer{width:min(100% - 28px,940px)}
-  .topbar-inner{min-height:48px}
+  .topbar-inner{
+    min-height:48px;
+    align-items:flex-start;
+    flex-direction:column;
+    justify-content:center;
+    padding-block:8px;
+    gap:8px;
+  }
+  .topbar-actions{
+    width:100%;
+    justify-content:space-between;
+    gap:10px;
+  }
   .wordmark{font-size:11px}
   nav.toplinks a{padding-inline:6px;font-size:10px}
+  .language-toggle button{padding-inline:7px}
 
   .hero-inner{padding-block:30px 28px}
   .hero-name{font-size:27px}

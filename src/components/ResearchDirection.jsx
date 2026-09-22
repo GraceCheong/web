@@ -1,11 +1,9 @@
-import { researchDirection } from '../data/content'
-
-export default function ResearchDirection() {
+export default function ResearchDirection({ researchDirection, ui }) {
   return (
     <section className="wrap section" id="direction">
       <div className="section-head">
-        <span className="eyebrow">02</span>
-        <h2>Research direction</h2>
+        <span className="eyebrow">{ui.sections.direction.number}</span>
+        <h2>{ui.sections.direction.heading}</h2>
       </div>
 
       <p className="section-lead">{researchDirection.lead}</p>

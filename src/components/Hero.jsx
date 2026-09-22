@@ -1,7 +1,6 @@
-import { profile } from '../data/content'
 import { ScholarIcon, GitHubIcon, LinkedInIcon } from './Icons'
 
-export default function Hero() {
+export default function Hero({ profile, ui }) {
   return (
     <section className="hero" id="top">
       <div className="hero-inner wrap">
@@ -19,15 +18,15 @@ export default function Hero() {
         <div className="hero-links">
           <a className="profile-link" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
             <ScholarIcon />
-            Scholar
+            {ui.profileLinks.scholar}
           </a>
           <a className="profile-link" href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
             <GitHubIcon />
-            GitHub
+            {ui.profileLinks.github}
           </a>
           <a className="profile-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
             <LinkedInIcon />
-            LinkedIn
+            {ui.profileLinks.linkedin}
           </a>
         </div>
 

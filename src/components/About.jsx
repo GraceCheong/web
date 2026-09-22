@@ -1,11 +1,9 @@
-import { educationTimeline, skillGroups } from '../data/content'
-
-export default function About() {
+export default function About({ educationTimeline, skillGroups, ui }) {
   return (
     <section className="wrap section" id="about">
       <div className="section-head">
-        <span className="eyebrow">01</span>
-        <h2>Education &amp; experience</h2>
+        <span className="eyebrow">{ui.sections.about.number}</span>
+        <h2>{ui.sections.about.heading}</h2>
       </div>
 
       <div className="education-list">

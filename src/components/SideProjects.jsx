@@ -1,12 +1,11 @@
-import { sideProjects } from '../data/content'
 import { GitHubIcon } from './Icons'
 
-export default function SideProjects() {
+export default function SideProjects({ sideProjects, ui }) {
   return (
     <section className="wrap section" id="side-projects">
       <div className="section-head">
-        <span className="eyebrow">05</span>
-        <h2>Side projects</h2>
+        <span className="eyebrow">{ui.sections.sideProjects.number}</span>
+        <h2>{ui.sections.sideProjects.heading}</h2>
       </div>
 
       <div className="side-project-list">
@@ -17,7 +16,13 @@ export default function SideProjects() {
               <div className="side-project-heading">
                 <h3>{project.title}</h3>
                 {project.githubUrl && (
-                  <a className="icon-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} repository`}>
+                  <a
+                    className="icon-link"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} ${ui.profileLinks.repository}`}
+                  >
                     <GitHubIcon />
                   </a>
                 )}

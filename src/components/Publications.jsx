@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { publications, profile } from '../data/content'
 import VideoEmbed from './VideoEmbed'
 
-function PublicationRow({ pub }) {
+function PublicationRow({ pub, labels }) {
   const [open, setOpen] = useState(false)
   const panelId = `${pub.id}-details`
 
@@ -42,7 +41,7 @@ function PublicationRow({ pub }) {
             aria-controls={panelId}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? 'Close' : 'Abstract & media'}
+            {open ? labels.toggleOpen : labels.toggleClosed}
             <span aria-hidden="true">{open ? '−' : '+'}</span>
           </button>
         </div>
@@ -51,7 +50,7 @@ function PublicationRow({ pub }) {
           <button
             type="button"
             className="work-thumb-button"
-            aria-label={`Open details for ${pub.title}`}
+            aria-label={`${labels.thumbnailLabel} ${pub.title}`}
             onClick={() => setOpen(true)}
           >
             <img className="work-thumb" src={pub.mainFigure} alt="" />
@@ -62,20 +61,20 @@ function PublicationRow({ pub }) {
       {open && (
         <div className="work-details" id={panelId}>
           <div className="work-detail-block">
-            <span className="field-label">Abstract</span>
+            <span className="field-label">{labels.abstractLabel}</span>
             <p>{pub.abstract}</p>
           </div>
 
           {pub.mainFigure && (
             <figure className="work-figure">
-              <img src={pub.mainFigure} alt={`Main figure from ${pub.title}`} />
+              <img src={pub.mainFigure} alt={`${labels.figureLabel} ${pub.title}`} />
             </figure>
           )}
 
-          {pub.video && <VideoEmbed url={pub.video} title={`${pub.title} video`} />}
+          {pub.video && <VideoEmbed url={pub.video} title={`${pub.title} ${labels.videoLabel}`} />}
 
           <a className="text-link" href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
-            DOI / publication &nearr;
+            {labels.doiLink}
           </a>
         </div>
       )}
@@ -83,22 +82,24 @@ function PublicationRow({ pub }) {
   )
 }
 
-export default function Publications() {
+export default function Publications({ publications, profile, ui }) {
+  const labels = ui.publications
+
   return (
     <section className="wrap section" id="publications">
       <div className="section-head split-head">
         <div>
-          <span className="eyebrow">03</span>
-          <h2>Publications</h2>
+          <span className="eyebrow">{ui.sections.publications.number}</span>
+          <h2>{ui.sections.publications.heading}</h2>
         </div>
         <a className="text-link section-link" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
-          Google Scholar &nearr;
+          {ui.profileLinks.googleScholar} &nearr;
         </a>
       </div>
 
       <div className="work-list">
         {publications.map((pub) => (
-          <PublicationRow key={pub.id} pub={pub} />
+          <PublicationRow key={pub.id} pub={pub} labels={labels} />
         ))}
       </div>
     </section>

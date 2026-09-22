@@ -1,16 +1,7 @@
 import { useScrollSpy } from '../hooks/useScrollSpy'
-import { profile } from '../data/content'
 
-const NAV_LINKS = [
-  { id: 'about', label: 'Education' },
-  { id: 'direction', label: 'Research' },
-  { id: 'publications', label: 'Publications' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'side-projects', label: 'Side Projects' },
-]
-
-export default function Header() {
-  const activeId = useScrollSpy(NAV_LINKS.map((link) => link.id))
+export default function Header({ lang, setLang, profile, ui }) {
+  const activeId = useScrollSpy(ui.navLinks.map((link) => link.id))
 
   return (
     <header className="topbar">
@@ -18,13 +9,28 @@ export default function Header() {
         <a className="wordmark" href="#top">
           {profile.name}
         </a>
-        <nav className="toplinks" aria-label="Main navigation">
-          {NAV_LINKS.map((link) => (
-            <a key={link.id} href={`#${link.id}`} className={activeId === link.id ? 'is-active' : ''}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="topbar-actions">
+          <nav className="toplinks" aria-label={ui.navigationLabel}>
+            {ui.navLinks.map((link) => (
+              <a key={link.id} href={`#${link.id}`} className={activeId === link.id ? 'is-active' : ''}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="language-toggle" role="group" aria-label={ui.languageToggleLabel}>
+            {['en', 'ko'].map((language) => (
+              <button
+                key={language}
+                type="button"
+                className={lang === language ? 'is-active' : ''}
+                onClick={() => setLang(language)}
+                aria-pressed={lang === language}
+              >
+                {ui.languages[language]}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </header>
   )

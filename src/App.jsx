@@ -40,7 +40,9 @@ export default function App() {
     else url.searchParams.delete('lang')
 
     window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
-    window.localStorage.setItem('portfolio-language', lang)
+    try {
+      window.localStorage.setItem('portfolio-language', lang)
+    } catch {}
 
     document.documentElement.lang = lang
     document.title = content.ui.meta.title

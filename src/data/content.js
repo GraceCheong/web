@@ -539,9 +539,16 @@ export function getInitialLanguageState() {
     return { lang: queryLanguage, explicit: true }
   }
 
-  const storedLanguage = window.localStorage.getItem('portfolio-language')
-  if (storedLanguage === 'ko' || storedLanguage === 'en') {
-    return { lang: storedLanguage, explicit: false }
+  try {
+    const storedLanguage = window.localStorage.getItem('portfolio-language')
+    if (storedLanguage === 'ko' || storedLanguage === 'en') {
+      return { lang: storedLanguage, explicit: false }
+    }
+  } catch {
+    return {
+      lang: window.navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en',
+      explicit: false,
+    }
   }
 
   return {

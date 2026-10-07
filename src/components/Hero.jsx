@@ -1,5 +1,6 @@
 import { profile } from '../data/content'
 import { ScholarIcon, GitHubIcon, LinkedInIcon } from './Icons'
+import { thumb } from '../utils/thumb'
 
 export default function Hero() {
   return (
@@ -41,7 +42,7 @@ export default function Hero() {
 
         <figure className="hero-photo">
           {profile.photo ? (
-            <img src={profile.photo} alt={`Portrait of ${profile.name}`} />
+            <img src={thumb(profile.photo)} alt={`Portrait of ${profile.name}`} />
           ) : (
             <span className="hero-photo-empty">Photo</span>
           )}

@@ -100,7 +100,7 @@ export const publications = [
     doiUrl: 'https://doi.org/10.1109/VRW66409.2025.00299',
     abstract:
       'This poster presents a pipeline that estimates the 3D pose and shape of the user for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
-    mainFigure: 'rsc/vrposter-teaser.png',
+    mainFigure: 'vrposter-teaser.png',
     video: 'https://youtu.be/6CT28Q_SnZ8?si=iris0KzsM5xoJv4E',
   },
 ]
@@ -131,8 +131,8 @@ export const projects = [
     role:
       'Worked on the real-time human reconstruction pipeline and integration of monocular mesh estimation with the interactive XR system.',
     images: [],
-    video: '',
-    relatedPublication: 'Interaction With Virtual Objects Using Human Pose and Shape Estimation',
+    video: 'vton_res_cut.mp4',
+    // relatedPublication: '#publication-xr',
     githubUrl: "https://github.com/medialab-ku/VTON/tree/integrated_3d", 
   },
 ]

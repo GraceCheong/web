@@ -6,19 +6,32 @@ export function useScrollSpy(ids) {
 
   useEffect(() => {
     const sections = ids.map((id) => document.getElementById(id)).filter(Boolean)
-    if (!('IntersectionObserver' in window) || sections.length === 0) return undefined
+    if (sections.length === 0) return undefined
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id)
-        })
-      },
-      { rootMargin: '-40% 0px -50% 0px' },
-    )
-
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
+    let frame = 0
+    function update() {
+      frame = 0
+      const threshold = (document.querySelector('.topbar')?.getBoundingClientRect().height ?? 52) + 24
+      let current = sections[0].id
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= threshold) current = section.id
+      }
+      if (Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight) {
+        current = sections.at(-1).id
+      }
+      setActiveId(current)
+    }
+    function schedule() {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+    }
   }, [ids])
 
   return activeId

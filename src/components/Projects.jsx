@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { projects } from '../data/content'
 import VideoEmbed from './VideoEmbed'
 import { GitHubIcon } from './Icons'
+import { thumb } from '../utils/thumb'
 
 function ProjectRow({ project }) {
   const [open, setOpen] = useState(false)
@@ -47,7 +48,7 @@ function ProjectRow({ project }) {
           >
             <img
               className="work-thumb"
-              src={project.images[0]}
+              src={thumb(project.images[0])}
               alt=""
               onLoad={(e) => {
                 const img = e.currentTarget

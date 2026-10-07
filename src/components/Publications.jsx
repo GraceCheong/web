@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { publications, profile } from '../data/content'
 import VideoEmbed from './VideoEmbed'
+import { thumb } from '../utils/thumb'
+import WorkImage from './WorkImage'
 
 function PublicationRow({ pub }) {
   const [open, setOpen] = useState(false)
@@ -54,14 +56,10 @@ function PublicationRow({ pub }) {
             aria-label={`Open details for ${pub.title}`}
             onClick={() => setOpen(true)}
           >
-            <img
+            <WorkImage
               className="work-thumb"
-              src={pub.mainFigure}
+              src={thumb(pub.mainFigure)}
               alt=""
-              onLoad={(e) => {
-                const img = e.currentTarget
-                img.classList.toggle('is-wide', img.naturalWidth / img.naturalHeight > 16 / 9)
-              }}
             />
           </button>
         )}
@@ -76,7 +74,7 @@ function PublicationRow({ pub }) {
 
           {pub.mainFigure && (
             <figure className="work-figure">
-              <img src={pub.mainFigure} alt={`Main figure from ${pub.title}`} />
+              <WorkImage src={pub.mainFigure} alt={`Main figure from ${pub.title}`} />
             </figure>
           )}
 

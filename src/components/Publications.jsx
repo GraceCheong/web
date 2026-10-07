@@ -75,7 +75,7 @@ function PublicationRow({ pub }) {
           {pub.video && <VideoEmbed url={pub.video} title={`${pub.title} video`} />}
 
           <a className="text-link" href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
-            DOI / publication &nearr;
+            DOI
           </a>
         </div>
       )}

@@ -47,8 +47,8 @@ export const publications = [
     doiUrl: 'https://doi.org/10.1002/cav.70144',
     abstract:
       'CameraVQ reformulates monocular camera calibration as classification over vector-quantized camera intrinsics. A learned discrete codebook constrains predictions to plausible camera configurations and improves robustness and generalization across diverse calibration benchmarks.',
-    mainFigure: '',
-    video: '',
+    mainFigure: 'https://onlinelibrary.wiley.com/cms/asset/18859548-ee6c-48ef-820e-525ae35ade0f/cav70144-fig-0001-m.jpg',
+    video: 'https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fcav.70144&file=cav70144-sup-0001-VideoS1.mp4',
   },
   {
     id: 'publication-xr',
@@ -73,8 +73,8 @@ export const publications = [
     doiUrl: 'https://doi.org/10.1002/cav.70046',
     abstract:
       'This work presents an AR interaction system built from human pose and shape estimation, camera-space calibration, and physics simulation. A single RGB video stream is used to reconstruct the user and support physically meaningful interaction with virtual objects.',
-    mainFigure: '',
-    video: '',
+    mainFigure: 'https://onlinelibrary.wiley.com/cms/asset/fcb5633f-2200-4f12-a5ff-78fedb32df4f/cav70046-fig-0001-m.jpg',
+    video: 'https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fcav.70046&file=cav70046-sup-0001-VideoS1.mp4',
   },
   {
     id: 'publication-ieeevr',
@@ -100,25 +100,25 @@ export const publications = [
     abstract:
       'This poster presents a pipeline that estimates a user’s 3D pose and shape for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
     mainFigure: '',
-    video: '',
+    video: 'https://youtu.be/6CT28Q_SnZ8?si=iris0KzsM5xoJv4E',
   },
 ]
 
 export const projects = [
-  {
-    id: 'digital-wardrobe',
-    title: 'Digital Wardrobe',
-    period: '2026 —',
-    status: 'In development',
-    tags: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
-    description:
-      'A personal virtual wardrobe prototype for organizing owned garments and previewing them on a 3D avatar with real-time garment simulation.',
-    role:
-      'Building the Unreal Engine pipeline for avatar-based garment preview, including garments prepared in CLO and simulated with Chaos Cloth.',
-    images: [],
-    video: '',
-    githubUrl: '',
-  },
+  // {
+  //   id: 'digital-wardrobe',
+  //   title: 'Digital Wardrobe',
+  //   period: '2026 —',
+  //   status: 'In development',
+  //   tags: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
+  //   description:
+  //     'A personal virtual wardrobe prototype for organizing owned garments and previewing them on a 3D avatar with real-time garment simulation.',
+  //   role:
+  //     'Building the Unreal Engine pipeline for avatar-based garment preview, including garments prepared in CLO and simulated with Chaos Cloth.',
+  //   images: [],
+  //   video: '',
+  //   githubUrl: '',
+  // },
   {
     id: 'xr-interaction-project',
     title: 'Human Reconstruction for XR Interaction',
@@ -132,6 +132,7 @@ export const projects = [
     images: [],
     video: '',
     relatedPublication: '#publication-xr',
+    githubUrl: "https://github.com/medialab-ku/VTON/tree/integrated_3d", 
   },
 ]
 

@@ -48,7 +48,7 @@ export const publications = [
     abstract:
       'CameraVQ reformulates monocular camera calibration as classification over vector-quantized camera intrinsics. A learned discrete codebook constrains predictions to plausible camera configurations and improves robustness and generalization across diverse calibration benchmarks.',
     mainFigure: 'https://onlinelibrary.wiley.com/cms/asset/18859548-ee6c-48ef-820e-525ae35ade0f/cav70144-fig-0001-m.jpg',
-    video: 'https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fcav.70144&file=cav70144-sup-0001-VideoS1.mp4',
+    video: 'https://youtu.be/fcduZLkyOXI?si=nv5VO2SEXgV4t0wC',
   },
   {
     id: 'publication-xr',
@@ -74,7 +74,7 @@ export const publications = [
     abstract:
       'This work presents an AR interaction system built from human pose and shape estimation, camera-space calibration, and physics simulation. A single RGB video stream is used to reconstruct the user and support physically meaningful interaction with virtual objects.',
     mainFigure: 'https://onlinelibrary.wiley.com/cms/asset/fcb5633f-2200-4f12-a5ff-78fedb32df4f/cav70046-fig-0001-m.jpg',
-    video: 'https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fcav.70046&file=cav70046-sup-0001-VideoS1.mp4',
+    video: 'https://youtu.be/_bTbgRJo6pU?si=EGH2imK8fv1dQ-Rm',
   },
   {
     id: 'publication-ieeevr',
@@ -99,7 +99,7 @@ export const publications = [
     doiUrl: 'https://doi.org/10.1109/VRW66409.2025.00299',
     abstract:
       'This poster presents a pipeline that estimates a user’s 3D pose and shape for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
-    mainFigure: '',
+    mainFigure: 'rsc\teaser.png',
     video: 'https://youtu.be/6CT28Q_SnZ8?si=iris0KzsM5xoJv4E',
   },
 ]
@@ -131,7 +131,7 @@ export const projects = [
       'Worked on the real-time human reconstruction pipeline and integration of monocular mesh estimation with the interactive XR system.',
     images: [],
     video: '',
-    relatedPublication: '#publication-xr',
+    relatedPublication: 'Interaction With Virtual Objects Using Human Pose and Shape Estimation',
     githubUrl: "https://github.com/medialab-ku/VTON/tree/integrated_3d", 
   },
 ]

@@ -18,7 +18,7 @@ export default function TimelineItem({ item, index }) {
     <li className={`tl-item2${item.placeholder ? ' is-placeholder' : ''}`}>
       <span className="tl-dot" aria-hidden="true" />
       <div className="tl-card">
-        {item.placeholder && <span className="placeholder-flag">Placeholder — needs your content</span>}
+        {item.placeholder && <span className="placeholder-flag">Placeholder - needs your content</span>}
         <div className="tl-card-head">
           <span className="tl-date mono">{item.period}</span>
           <span className="idx mono">{String(index + 1).padStart(2, '0')}</span>
@@ -43,7 +43,7 @@ export default function TimelineItem({ item, index }) {
             onClick={() => setOpen((value) => !value)}
           >
             {open ? 'Hide details' : 'View details'}
-            <span className="tl-toggle-icon">{open ? '−' : '+'}</span>
+            <span className="tl-toggle-icon">{open ? '-' : '+'}</span>
           </button>
         )}
 
@@ -81,7 +81,7 @@ export default function TimelineItem({ item, index }) {
                 <div className="diagram" role="img" aria-label={`Conceptual overview for ${item.title}`}>
                   {item.diagram.map((step, i) => (
                     <Fragment key={step.label}>
-                      {i > 0 && <span aria-hidden="true">&rarr;</span>}
+                      {i > 0 && <span aria-hidden="true">{">"}</span>}
                       <div className={step.accent ? 'accent' : ''}>
                         <small>{step.label}</small>
                         <strong>{step.value}</strong>
@@ -114,7 +114,7 @@ export default function TimelineItem({ item, index }) {
               <div className="tl-links">
                 {item.links.map((link) => (
                   <a key={link.label} className="text-link" href={link.href}>
-                    {link.label} &darr;
+                    {link.label}
                   </a>
                 ))}
               </div>

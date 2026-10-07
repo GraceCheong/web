@@ -1,7 +1,8 @@
 export const profile = {
   name: 'DaEun Cheong',
-  wordmarkTag: '3D VISION · RESEARCH',
-  eyebrow: '3D Vision · Deep Learning',
+  photo: 'profile.jpg',
+  wordmarkTag: '3D VISION | RESEARCH',
+  eyebrow: '3D Vision | Deep Learning',
   intro: [
     'I am a 3D vision researcher focused on how learned representations can help models infer geometry and structure from images.',
     'My work spans monocular camera calibration, human reconstruction, and real-time 3D systems.',
@@ -36,14 +37,14 @@ export const publications = [
     id: 'publication-cameravq',
     year: 'MAY 2026',
     status: 'PUBLISHED',
-    type: 'JOURNAL · FIRST AUTHOR',
+    type: 'JOURNAL | FIRST AUTHOR',
     title: 'CameraVQ: Vector-Quantized Representations for Monocular Camera Calibration',
     authors: [
       { name: 'DaEun Cheong', me: true },
       { name: 'Jung Hyun Han' },
     ],
     institutions: ['Media Lab, Korea University'],
-    venue: 'Computer Animation and Virtual Worlds · 37(3), e70144',
+    venue: 'Computer Animation and Virtual Worlds | 37(3), e70144',
     doiUrl: 'https://doi.org/10.1002/cav.70144',
     abstract:
       'CameraVQ reformulates monocular camera calibration as classification over vector-quantized camera intrinsics. A learned discrete codebook constrains predictions to plausible camera configurations and improves robustness and generalization across diverse calibration benchmarks.',
@@ -69,7 +70,7 @@ export const publications = [
       'Victoria University of Wellington',
       'The University of Melbourne',
     ],
-    venue: 'Computer Animation and Virtual Worlds · 36(3), e70046',
+    venue: 'Computer Animation and Virtual Worlds | 36(3), e70046',
     doiUrl: 'https://doi.org/10.1002/cav.70046',
     abstract:
       'This work presents an AR interaction system built from human pose and shape estimation, camera-space calibration, and physics simulation. A single RGB video stream is used to reconstruct the user and support physically meaningful interaction with virtual objects.',
@@ -95,11 +96,11 @@ export const publications = [
       'Victoria University of Wellington',
       'The University of Melbourne',
     ],
-    venue: '2025 IEEE VR Abstracts and Workshops · pp. 1306–1307',
+    venue: '2025 IEEE VR Abstracts and Workshops | pp. 1306-1307',
     doiUrl: 'https://doi.org/10.1109/VRW66409.2025.00299',
     abstract:
-      'This poster presents a pipeline that estimates a user’s 3D pose and shape for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
-    mainFigure: 'rsc\teaser.png',
+      'This poster presents a pipeline that estimates the 3D pose and shape of the user for full-body interaction with virtual objects in mixed reality, with usability and effectiveness evaluated through a user study.',
+    mainFigure: '/rsc/vrposter-teaser.png',
     video: 'https://youtu.be/6CT28Q_SnZ8?si=iris0KzsM5xoJv4E',
   },
 ]
@@ -108,7 +109,7 @@ export const projects = [
   // {
   //   id: 'digital-wardrobe',
   //   title: 'Digital Wardrobe',
-  //   period: '2026 —',
+  //   period: '2026 - Present',
   //   status: 'In development',
   //   tags: ['Unreal Engine', 'Chaos Cloth', 'CLO', '3D Human Avatar', 'Real-time Graphics'],
   //   description:
@@ -122,7 +123,7 @@ export const projects = [
   {
     id: 'xr-interaction-project',
     title: 'Human Reconstruction for XR Interaction',
-    period: '2023 — 2025',
+    period: '2023 - 2025',
     status: 'Completed',
     tags: ['Human mesh recovery', 'Mixed reality', 'Unity', 'Real-time 3D'],
     description:
@@ -139,7 +140,7 @@ export const projects = [
 export const sideProjects = [
   {
     id: 'po-rr',
-    period: 'JUN 2026 —',
+    period: 'JUN 2026 - Present',
     title: 'PO,RR Worship PPT',
     description:
       'A presentation-generation system with a desktop client, FastAPI server, template synchronization, and multi-backend PowerPoint generation.',
@@ -159,13 +160,13 @@ export const sideProjects = [
 
 export const educationTimeline = [
   {
-    date: 'JUN 2023 — FEB 2026',
+    date: 'JUN 2023 - FEB 2026',
     title: 'Korea University',
-    org: 'M.S. in Computer Science and Engineering · Research Student, Media Lab',
-    extra: 'GPA 4.3 / 4.5 · Thesis: CameraVQ · 3D vision · human reconstruction · camera geometry',
+    org: 'M.S. in Computer Science and Engineering | Research Student, Media Lab',
+    extra: 'GPA 4.3 / 4.5 | Thesis: CameraVQ | 3D vision | human reconstruction | camera geometry',
   },
   {
-    date: 'MAR 2015 — AUG 2021',
+    date: 'MAR 2015 - AUG 2021',
     title: 'Kyung Hee University',
     org: 'B.S. in Computer Engineering',
     extra: '',

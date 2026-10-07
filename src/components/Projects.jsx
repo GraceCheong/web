@@ -34,7 +34,7 @@ function ProjectRow({ project }) {
             onClick={() => setOpen((value) => !value)}
           >
             {open ? 'Close' : 'Details & results'}
-            <span aria-hidden="true">{open ? '−' : '+'}</span>
+            <span aria-hidden="true">{open ? '-' : '+'}</span>
           </button>
         </div>
 
@@ -45,7 +45,15 @@ function ProjectRow({ project }) {
             aria-label={`Open details for ${project.title}`}
             onClick={() => setOpen(true)}
           >
-            <img className="work-thumb" src={project.images[0]} alt="" />
+            <img
+              className="work-thumb"
+              src={project.images[0]}
+              alt=""
+              onLoad={(e) => {
+                const img = e.currentTarget
+                img.classList.toggle('is-wide', img.naturalWidth / img.naturalHeight > 16 / 9)
+              }}
+            />
           </button>
         )}
       </div>
@@ -74,7 +82,7 @@ function ProjectRow({ project }) {
           <div className="work-links">
             {project.relatedPublication && (
               <a className="text-link" href={project.relatedPublication}>
-                Related publication &darr;
+                Related publication
               </a>
             )}
             {project.githubUrl && (

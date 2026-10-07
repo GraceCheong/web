@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div>
         <div className="f-name">{profile.name}</div>
-        <div className="f-tag">3D vision &amp; deep learning</div>
+        <div className="f-tag">3D vision and deep learning</div>
       </div>
       <div className="f-links">
         <a href={`mailto:${profile.email}`}>Email</a>
@@ -15,7 +15,7 @@ export default function Footer() {
         <a href={profile.githubUrl} target="_blank" rel="noopener">
           GitHub
         </a>
-        <a href="#top">Back to top &uarr;</a>
+        <a href="#top">Back to top</a>
       </div>
     </footer>
   )

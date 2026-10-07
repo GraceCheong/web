@@ -31,7 +31,7 @@ function PublicationRow({ pub }) {
           </p>
 
           <p className="publication-meta">
-            <span>{pub.institutions?.join(' · ')}</span>
+            <span>{pub.institutions?.join(' | ')}</span>
             <span className="publication-venue">{pub.venue}</span>
           </p>
 
@@ -43,7 +43,7 @@ function PublicationRow({ pub }) {
             onClick={() => setOpen((value) => !value)}
           >
             {open ? 'Close' : 'Abstract & media'}
-            <span aria-hidden="true">{open ? '−' : '+'}</span>
+            <span aria-hidden="true">{open ? '-' : '+'}</span>
           </button>
         </div>
 
@@ -54,7 +54,15 @@ function PublicationRow({ pub }) {
             aria-label={`Open details for ${pub.title}`}
             onClick={() => setOpen(true)}
           >
-            <img className="work-thumb" src={pub.mainFigure} alt="" />
+            <img
+              className="work-thumb"
+              src={pub.mainFigure}
+              alt=""
+              onLoad={(e) => {
+                const img = e.currentTarget
+                img.classList.toggle('is-wide', img.naturalWidth / img.naturalHeight > 16 / 9)
+              }}
+            />
           </button>
         )}
       </div>
@@ -92,7 +100,7 @@ export default function Publications() {
           <h2>Publications</h2>
         </div>
         <a className="text-link section-link" href={profile.scholarUrl} target="_blank" rel="noopener noreferrer">
-          Google Scholar &nearr;
+          Google Scholar
         </a>
       </div>
 
